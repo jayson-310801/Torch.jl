@@ -10,6 +10,6 @@ include_directories(SYSTEM path)
 add_library(doeye_caml "SHARED" torch_api.cpp)
 target_link_libraries(doeye_caml "${TORCH_LIBRARIES}")
 message("this is torch_libraries -> ${TORCH_LIBRARIES}")
-target_link_libraries(doeye_caml "${CUDNN_LIBRARY_PATH}")
+target_link_libraries(doeye_caml -LENV{prefix}/cudnn/lib)
 
 set_property(TARGET doeye_caml PROPERTY CXX_STANDARD 14)
